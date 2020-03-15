@@ -1,0 +1,26 @@
+--- main-window.c	2020-03-15 02:14:54.720489607 +0200
++++ main-window_new.c	2020-03-15 02:05:27.888727598 +0200
+@@ -4162,7 +4162,7 @@
+ static long get_desktop_index( GtkWindow* win )
+ {
+     long desktop = -1;
+-    GdkDisplay* display;
++    GdkDisplay* display = NULL;
+     GdkWindow* window = NULL;
+ 
+     if ( win )
+@@ -4175,12 +4175,12 @@
+     {
+         // get current desktop
+         display = gdk_display_get_default();
+-        if ( display )
++        if ( GDK_IS_X11_DISPLAY( display ) )
+             window = gdk_x11_window_lookup_for_display( display,
+                                     gdk_x11_get_default_root_xwindow() );
+     }
+ 
+-    if ( !( GDK_IS_DISPLAY( display ) && GDK_IS_WINDOW( window ) ) )
++    if ( !( GDK_IS_X11_DISPLAY( display ) && GDK_IS_WINDOW( window ) ) )
+         return desktop;
+ 
+     // find out what desktop (workspace) window is on   #include <gdk/gdkx.h>
