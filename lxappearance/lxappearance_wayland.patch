@@ -1,0 +1,11 @@
+--- lxappearance.c	2020-03-21 14:30:06.145309714 +0200
++++ lxappearance_new.c	2020-03-21 14:31:10.004933376 +0200
+@@ -634,7 +634,7 @@
+     app.abi_version = LXAPPEARANCE_ABI_VERSION;
+ 
+     /* check if we're under LXSession */
+-    check_lxsession();
++    // check_lxsession();
+ 
+     /* create GUI here */
+     b = gtk_builder_new();
